@@ -7,6 +7,9 @@ const monthlyWinner = new Schema({
     type: String,
     default: "201807"
   },
+  prize: {
+    type: Number
+  },
   winners: {
     type: Array,
     default: [
@@ -17,7 +20,7 @@ const monthlyWinner = new Schema({
   }
 });
 
-User.statics.create = function(season, first, second, third) {
+monthlyWinner.statics.create = function(season, first, second, third) {
   const user = new this({
     season,
     winners: {
@@ -29,4 +32,4 @@ User.statics.create = function(season, first, second, third) {
   return user.save();
 };
 
-module.exports = mongoose.model("BucketUser", BucketUser);
+module.exports = mongoose.model("MonthlyWinner", monthlyWinner);

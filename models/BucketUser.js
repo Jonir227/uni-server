@@ -7,7 +7,7 @@ const BucketUser = new Schema({
   nickName: String
 });
 
-User.statics.create = function(username, nickName) {
+BucketUser.statics.create = function(username, nickName) {
   const user = new this({
     username,
     nickName
